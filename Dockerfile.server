@@ -1,0 +1,19 @@
+
+FROM node:12.18.0-alpine as api_builder
+ARG INATO_PRIVATE_PACKAGE_REGISTRY_TOKEN=not_specified
+WORKDIR /app
+COPY . .
+
+ENV INATO_PRIVATE_PACKAGE_REGISTRY_TOKEN=$INATO_PRIVATE_PACKAGE_REGISTRY_TOKEN
+
+WORKDIR /app/packages/server
+RUN yarn workspaces focus
+
+WORKDIR /app
+RUN yarn InatoCodec build
+RUN yarn server build
+
+ENV NODE_ENV="production" \
+  PORT=8000
+
+ENTRYPOINT [ "yarn", "server", "start" ]

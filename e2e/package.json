@@ -1,0 +1,29 @@
+{
+  "name": "@inato/e2e",
+  "version": "1.0.0",
+  "description": "e2e tests for inato-marketplace",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn cypress run -q",
+    "start-dev": "yarn cypress open",
+    "lint": "eslint --config ./.eslintrc.js --ext ts ./cypress",
+    "typecheck": "yarn tsc",
+    "validate": "yarn lint && yarn typecheck"
+  },
+  "devDependencies": {
+    "@inato/eslint-config-marketplace": "^1.0.0",
+    "@testing-library/cypress": "^7.0.1",
+    "@types/node": "^14.14.0",
+    "@types/testing-library__cypress": "^5.0.8",
+    "cypress": "^5.3.0",
+    "cypress-file-upload": "^4.1.1",
+    "cypress-xpath": "^1.6.0",
+    "date-fns": "^2.15.0",
+    "eslint": "^7.14.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "prettier": "^2.2.0"
+  },
+  "dependencies": {
+    "typescript": "^4.1.2"
+  }
+}
