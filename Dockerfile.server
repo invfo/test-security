@@ -1,5 +1,5 @@
 
-FROM node:12.18.0-alpine as api_builder
+FROM node:12.18.4-alpine as api_builder
 ARG INATO_PRIVATE_PACKAGE_REGISTRY_TOKEN=not_specified
 WORKDIR /app
 COPY . .
